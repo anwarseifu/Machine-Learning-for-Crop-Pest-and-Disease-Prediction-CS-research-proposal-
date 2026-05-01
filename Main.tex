@@ -1,1 +1,285 @@
+\documentclass[12pt,a4paper]{article}
 
+%   Essential Packages 
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{times}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{pgfgantt} 
+\usepackage{array}
+\usepackage{caption}
+\usepackage[backend=biber,style=ieee]{biblatex}
+
+%  Hyperref Configuration 
+\usepackage{xcolor}
+
+\definecolor{citeblue}{rgb}{0.1, 0.6, 0.9}
+\definecolor{violetblue}{rgb}{0.5, 0.3, 1.0} 
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,     
+    linkcolor=black,      
+    citecolor=citeblue,   
+    urlcolor=violetblue,  
+    allbordercolors={white} 
+}
+
+% Bibliography file link
+\addbibresource{references.bib}
+
+\onehalfspacing
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        
+        % university info
+        \Large \textbf{HAWASSA UNIVERSITY} \\
+        \large \textbf{INSTITUTE OF TECHNOLOGY} \\
+        \large \textbf{FACULTY OF INFORMATICS} \\
+        \large \textbf{DEPARTMENT OF COMPUTER SCIENCE} \\
+        
+        \vfill
+        
+        % About Course and Project Info
+        \large Research Methods in Computer Science (CoSc3101) \\
+        \vspace{0.5cm}
+        \Large \textbf{CS Research Proposal} \\
+        
+        \vspace{1.5cm}
+        
+      
+        
+        % Title
+        \hrule
+        \vspace{0.4cm}
+        \huge \textbf{Effectiveness of Machine Learning in Predicting and Managing Crop Pests and Diseases} \\
+        \vspace{0.4cm}
+        \hrule
+        
+        \vfill
+        
+        % My and Instructor Details
+        \begin{flushleft}
+            \large
+            \textbf{Submitted by:} Anwar Seifu \\
+            \textbf{ID No:} 1317/16 \\
+            \vspace{0.8cm}
+            \textbf{Submitted to:} Mr. Birhane Bekele \\
+        \end{flushleft}
+        
+        \vfill
+        
+        % submission date
+        \large Submission Date: May 1, 2026 
+          
+    \end{center}
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+%  SECTION 1: INTRODUCTION 
+\section{Introduction}
+
+When we think about modern technology, we usually think about smartphones or fast internet, but the most important place for computer science today is actually on the farm. Agriculture is more than just a business; it is the fundamental system that keeps us all alive. However, this system is currently under attack by pests and diseases that are getting harder to control. As established in recent benchmarks, the transition to automatic crop disease identification is now a critical requirement for global food security \cite{karthik2023}. Every year, nearly half of the world's food somewhere between 20\% and 40\% is lost before it even reaches a dinner table.
+
+For hundreds of years, the only way to protect crops was for farmers to walk through their fields and look at leaves one by one. This manual work was fine in the past, but it is way too slow for the world we live in now. With billions more people to feed by 2050, we can't just wait for a problem to happen and then try to fix it. We need to stop reacting and start predicting. Machine Learning (ML) is the perfect tool for this because it can look at thousands of photos and weather details much faster and more accurately than any human ever could.
+
+The reason I am doing this research is because of a strange problem: we have "smart" computers that can recognize a face in a crowd or a car on the street, but they often fail when they get out into the messy, real world of a farm. In a place like Ethiopia, where most people depend on farming to survive, a computer that works in a clean lab but fails in a dusty field is not helpful. We need technology that is tough enough for the real world.
+
+This proposal is about building a system that doesn't just look at pictures. By combining "eyes" (drone cameras) with "ears" (weather sensors), I want to create a tool that doesn't just see a disease—it feels it coming. By bringing together the latest AI and smart sensors, this project aims to give farmers a real chance to protect their crops, save their money, and keep the food supply safe for everyone.
+
+%  SECTION 2: THE LOGICAL FOUNDATION 
+\section{The Logical Foundation} 
+
+\subsection{Background and Context}
+Agricultural stability is the backbone of global food security. However, biological threats, pests and diseases currently account for nearly 40\% of yield losses globally. While the industry has shifted toward "Data Science" solutions, the actual implementation of these tools in diverse field environments remains a significant technical Obstacle.
+
+\subsection{Problem Statement} 
+
+\textbf{Ideal: Catching the Problem Early}\\
+In a perfect world, farming would be one step ahead of nature. Imagine if we had a smart system that could look at a field and spot a pest or a disease before it even shows up on a leaf. It’s like having a weather app that tells you exactly when to grab an umbrella before the first drop of rain falls. If we could catch these issues when they are still "invisible" to the human eye, farmers could fix them with just a tiny bit of treatment in one small spot. This would keep our food safe, save the farmer a lot of money, and make sure we aren't wasting resources.
+
+\textbf{Reality: Too Little, Too Late}\\
+But right now, the reality is much more stressful. Here in Ethiopia, most farmers have to walk through miles of crops, looking at plants one by one. The problem is that humans aren't perfect—we get tired, we miss things, and we can't see what's happening inside a plant. By the time a farmer actually sees a bug or a brown spot, it’s already too late. The "invisible" stage is over, the disease has already moved in, and it's starting to spread like wildfire. We are basically trying to fix a problem after it has already caused the damage.
+
+\textbf{Consequence: A Costly Mess for Everyone}\\
+Since we are always playing catch-up, the results are bad for everyone. When a farmer realizes they are losing their crop, they often feel they have no choice but to spray huge amounts of strong chemicals everywhere to save what’s left. This is a "lose-lose" situation: it costs the farmer money they don't have, it kills the good insects that actually help the farm, and it leaves chemicals in our soil and water. If we don't find a way to use technology to see these problems earlier, we will keep losing nearly half of our food every year, which means higher prices for all of us and a harder life for the people who grow our food.
+
+\subsection{Objectives}
+
+\textbf{General Objective} \\
+The primary goal of this research is to develop and validate a multi-sensor fusion framework that uses Machine Learning to detect crop pests and diseases. By combining visual image data with environmental telemetry, the project aims to provide an early-warning tool that helps farmers stop outbreaks before they lead to significant biomass loss.
+
+\textbf{Specific SMART Objectives} \\
+To achieve this, the project will focus on the following three technical milestones:
+\begin{enumerate}
+    \item \textbf{High-Precision Classification:} To design and train a Deep Learning model (based on a Hybrid CNN-Transformer architecture) that can identify 15 distinct pest and disease categories from the PlantVillage dataset with an F1-score of at least 0.90.
+    \item \textbf{Environmental Risk Modeling:} To analyze how ambient temperature and humidity levels correlate with disease proliferation speeds. This data will be used to generate a "Risk Probability" score that predicts the likelihood of an outbreak spreading within a 48-hour window.
+    \item \textbf{Real-World Robustness Testing:} To evaluate and optimize the system's performance against "noisy" data. The goal is to ensure the model maintains an accuracy of at least 85\% when processing blurry, low-resolution, or poorly lit images, simulating actual field conditions encountered during drone-based surveillance.
+\end{enumerate}
+
+
+%  SECTION 3: LITERATURE SYNTHESIS & SOTA 
+\section{Literature Synthesis \& SOTA}
+\subsection{Peer-Reviewed Sources}
+
+Based on the research synthesis, the following five sources from IEEE Xplore, ACM, and ScienceDirect (2022--2026) have been identified and integrated into this study:
+
+\begin{enumerate}
+    \item \textbf{IEEE Xplore:} Karthik et al. (2023) \cite{karthik2023}. \textit{ML Review in Uncontrolled Environments}. Published in IEEE Access. This source provides a foundational review of how environmental noise affects model accuracy.
+    \item \textbf{IEEE Xplore:} Ahmad et al. (2024) \cite{uav_ml2024}. \textit{Precision Ag ML using UAV Imagery}. Published in IEEE Transactions on Agri-Tech. This study focuses on the computational challenges of processing high-resolution drone data.
+    \item \textbf{ACM:} Kumar et al. (2024) \cite{eai2024}. \textit{Machine Learning on Field Data for Agricultural Resilience}. Published via ACM EAI. This research addresses the scarcity of labeled datasets for specific regional pests.
+    \item \textbf{ScienceDirect:} Das et al. (2025) \cite{tea_precision2025}. \textit{Tea Leaf Image Recognition under Varying Light}. Published in Computers and Electronics in Agriculture. This paper explores the sensitivity of ML models to leaf occlusion and lighting.
+    \item \textbf{ScienceDirect:} Babu et al. (2024) \cite{babu2024}. \textit{Machine Learning based Disease and Pest detection in Agricultural Crop Fields}. This work evaluates the use of IoT sensors and network stability in real-time agricultural monitoring.
+\end{enumerate}
+\newpage
+
+\subsection{Synthesis Matrix}
+\begin{table}[h!]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{2.5pt} 
+\begin{tabular}{|l|l|l|c|p{0.28\linewidth}|} 
+\hline
+\textbf{Author (Year)} & \textbf{Method} & \textbf{Data Type} & \textbf{Metric} & \textbf{Technical Limitation} \\ \hline \hline
+
+Babu et al. (2024) \cite{babu2024} & Real-time ML & IoT Sensors & 95.0\% Acc & Highly dependent on sensor calibration and network stability. \\ \hline
+
+Kumar et al. (2024) \cite{eai2024} & Machine Learning & Field Data & 0.93 F1 & Limited by scarcity of diverse labeled datasets for regional pests. \\ \hline
+
+Ahmad et al. (2024) \cite{uav_ml2024} & Precision Ag ML & UAV Imagery & 0.91 mAP & High computational overhead for processing aerial data on edge hardware. \\ \hline
+
+Das et al. (2025) \cite{tea_precision2025} & Machine Learning & Tea Leaf Img & 96.2\% Acc & Sensitivity to variations in ambient lighting and leaf occlusion. \\ \hline
+
+Karthik et al. (2023) \cite{karthik2023} & ML Review & Field RGB Img & 98.8\% Acc & Significant accuracy decay when moving to uncontrolled environments. \\ \hline
+\end{tabular}
+\caption{Synthesis of Agricultural ML and Drone-based Research.}
+\end{table}
+
+
+\subsection{Research Gap Analysis} 
+After reviewing these studies, I have identified three major real-world problems that current technology still hasn't solved.
+
+First, there is the \textbf{``Lab vs. Reality''} problem. Research by Karthik et al. \cite{karthik2023} shows that while a computer can be 99\% accurate in a perfect, clean lab, that performance often drops significantly once it gets out into a messy field. As Das et al. \cite{tea_precision2025} pointed out, things we take for granted like bright sunlight, weird shadows, or a leaf being partially hidden—make it very difficult for current AI to see clearly.
+
+Second, we have a \textbf{``Computing Struggle''}. Ahmad et al. \cite{uav_ml2024} proved that while drones take amazing high-resolution photos, the brain power needed to process those images is way too high for the simple, low-power hardware that most farmers can actually afford.
+
+Finally, the data is currently \textbf{``Not Talking to Each Other''}. Right now, research is often fragmented; for instance, Babu et al. \cite{babu2024} utilize sensors to monitor environmental weather conditions, but there is a lack of integration with visual diagnostic tools. My research bridges this gap by giving the computer both ``eyes'' (drones) and ``ears'' (weather sensors) at the same time. This creates a system that is tough enough for the real-world conditions found on farms here in Ethiopia and smart enough to run on basic equipment \cite{eai2024}.
+
+%  SECTION 4: TECHNICAL METHODOLOGY 
+\section{Technical Methodology \& Experimental Design}
+
+This section describes the technical "how" of the project. I have chosen tools and methods that bridge the gap between complex Machine Learning research and the practical needs of a real farm.
+
+\subsection{System Architecture}
+\begin{center}
+    \textit{}
+\end{center}
+\includegraphics[width=\textwidth]{"system architecture"}
+\begin{flushleft}
+The system is designed as a \textbf{Multi-Modal Fusion Pipeline}. This means the Machine Learning brain takes two different types of information at the same time:
+\end{flushleft}
+\begin{enumerate}
+    \item \textbf{Visual Input:} Images of leaves and pests are captured by drone cameras.
+    \item \textbf{Environmental Input:} Data on temperature and humidity is collected by IoT sensors.
+\end{enumerate}
+These inputs are merged in a \textbf{Late-Fusion Layer}. This allows the model to understand that a small brown spot on a leaf is much more dangerous when the humidity is high, improving prediction accuracy over simple image-only models.
+
+\subsection{Tool Justification}
+I have chosen \textbf{PyTorch} for this project because it is the industry standard for building Hybrid CNN-Transformer models in 2026. Unlike older tools, PyTorch offers dynamic graphs, which are essential for experimenting with multi-modal data fusion. I will also use \textbf{OpenCV} for image preprocessing and \textbf{Scikit-learn} for baseline statistical comparisons and feature scaling.
+
+\subsection{Data Strategy}
+\textbf{Dataset Source:} I will use a combination of the \textbf{PlantVillage} dataset for initial training and the \textbf{DLCPD-25} (Deep Learning Crop Pest Dataset 2025) for real-world field testing.
+\textbf{Preprocessing Steps:} To ensure the model is "field-tough," I will apply:
+\begin{itemize}
+    \item \textbf{Standardization:} Resizing all input images to $224 \times 224$ pixels.
+    \item \textbf{Data Augmentation:} Artificially adding motion blur and low-light noise to simulate drone photography in bad weather.
+    \item \textbf{Normalization:} Applying Z-score normalization to sensor data so that temperature and humidity values are on the same scale.
+\end{itemize}
+
+\subsection{Evaluation Metrics}
+To mathematically prove the success of the system, I will use the following metrics:
+\begin{itemize}
+    \item \textbf{Macro-Averaged F1-Score:} This measures the balance between Precision and Recall across all classes equally. It is essential because pest datasets are often imbalanced, and we must treat rare diseases with the same importance as common ones.
+    \begin{equation}
+        F1_{macro} = \frac{1}{N} \sum_{i=1}^{N} \left( 2 \times \frac{\text{Precision}_i \times \text{Recall}_i}{\text{Precision}_i + \text{Recall}_i} \right)
+    \end{equation}
+    
+    \item \textbf{Mean Absolute Error (MAE):} This measures how far off our "Risk Score" is from the actual field observations:
+    \begin{equation}
+        MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - \hat{y}_i|
+    \end{equation}
+    
+    \item \textbf{Inference Latency:} Success is defined as an end-to-end processing time of $< 500$ms per image. This ensures the system provides real-time feedback when deployed on drone-integrated edge computing hardware.
+\end{itemize}
+
+%  SECTION 5: PROJECT MANAGEMENT & ETHICS 
+\section{Project Management \& Ethics}
+
+A successful research project needs more than just good code; it needs a clear plan and a commitment to doing things the right way. This section covers how I will manage my time and the ethical rules I will follow.
+
+\subsection{Project Timeline (Gantt Chart)}
+To ensure the project stays on track, I’ve structured the development into five key phases over a 12 weeks timeline. I’ll be using a Gantt chart to monitor these milestones.
+\begin{center}
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    x unit=1.1cm, 
+    y unit title=0.7cm,
+    title height=1,
+    bar/.append style={fill=green!70!black},
+    group/.append style={draw=black, fill=black!20},
+    newline shortcut=true
+]{1}{12}
+   
+    \gantttitle{3-Month Research Timeline (12 Weeks)}{12} \\
+    \gantttitle{Month 1}{4} 
+    \gantttitle{Month 2}{4} 
+    \gantttitle{Month 3}{4} \\
+    \gantttitlelist{1,...,12}{1} \\
+
+ 
+    \ganttbar{Literature Review}{1}{3} \\
+    \ganttbar{Data Preparation}{2}{5} \\ 
+    \ganttbar{Model Training}{5}{9} \\    
+    \ganttbar{Testing \& Validation}{8}{11} \\
+    \ganttbar{Final Documentation}{11}{12}
+\end{ganttchart}
+\end{center}
+
+\subsection{Ethical Considerations}
+Even though this project is about plants, it still involves data and people. I have identified three main ethical areas I must respect:
+
+\begin{itemize}
+    \item \textbf{Data Privacy \& Anonymity:} While the images are of plants, the location data (GPS) could point to specific farms. I will follow **GDPR** principles by stripping away any personal identification or exact land-ownership markers from the dataset. 
+    
+    \item \textbf{Fighting Algorithmic Bias:} Machine Learning models can be biased if they are only trained on "rich" data. I will make sure my model is trained on a variety of crops, not just high-profit industrial ones. 
+    
+\item \textbf{Environmental Impact:} Training large Machine Learning models can require a lot of electricity. To minimize the environmental impact of this research, I will use a technique called \textbf{Transfer Learning}. This allows the model to build upon existing knowledge rather than starting from scratch, which saves hours of high-power computing and keeps the project eco-friendly.
+\end{itemize}
+
+%  SECTION 6: VERSION CONTROL \& DOCUMENTATION 
+\section{Version Control \& Documentation}
+
+The complete Readme file and LaTeX source files for this research are hosted on GitHub to ensure transparency and reproducibility. 
+
+The project repository can be accessed at:
+\begin{flushleft}
+    \footnotesize \url{https://github.com/anwarseifu/Machine-Learning-for-Crop-Pest-and-Disease-Prediction-CS-research-proposal-}
+\end{flushleft}
+
+%  REFERENCES  
+\section{References}
+
+\printbibliography[heading=none]
+\end{document}
